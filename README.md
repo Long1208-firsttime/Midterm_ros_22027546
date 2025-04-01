@@ -16,7 +16,7 @@ ROS-based controller for a robotic arm and mobile base in Gazebo.
 - Arm holds position until new command.
 
 ## Setup
-1. Clone: `git clone https://github.com/your-username/robot_arm_controller.git`
+1. Clone: `git clone https://github.com/Long1208-firsttime/Midterm_ros_22027546.git`
 2. Build: `cd ~/catkin_ws && catkin_make && source devel/setup.bash`
 3. Run:
    - Gazebo: `roslaunch ten gazebo.launch`
