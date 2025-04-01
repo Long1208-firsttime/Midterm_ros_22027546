@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'joint_rb', 'joint_lb', 'joint_rr', 'joint_rf', 'joint_rl', 'joint_lf', 'joint_armone', 'joint_armtwo', 'joint_grip', ]

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="ten">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.00234108810956965 -2.0130803930053E-05 -0.0160690551998181" rpy="0 0 0" />
+      <mass value="1.35087539538164" />
+      <inertia ixx="0.00390803490168998" ixy="2.56534541584962E-06" ixz="-0.000216074327857083" iyy="0.0106245371411029" iyz="1.14973895503086E-06" izz="0.0130498291217508" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/base_link.STL" />
+      </geometry>
+      <material name="l">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="base_link">
+    <material>Gazebo/LightGrey</material>
+  </gazebo>
+
+  <link name="link_rb">
+    <inertial>
+      <origin xyz="-3.80415143830248E-12 0.0124998578121212 -6.34490029960411E-12" rpy="0 0 0" />
+      <mass value="0.107249168322434" />
+      <inertia ixx="4.74942167970264E-05" ixy="8.73960312790841E-15" ixz="8.43331846995312E-15" iyy="8.49212804264834E-05" iyz="2.74858731609934E-14" izz="4.74942168005901E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_rb.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_rb.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <joint name="joint_rb" type="continuous">
+    <origin xyz="-0.115 -0.1 -0.02" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_rb" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <gazebo reference="link_rb">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <link name="link_lb">
+    <inertial>
+      <origin xyz="3.12937176172312E-12 -0.0124998578121187 6.3729473087637E-12" rpy="0 0 0" />
+      <mass value="0.107249168323003" />
+      <inertia ixx="4.7494216791172E-05" ixy="9.81169308698789E-15" ixz="4.10186836219358E-15" iyy="8.49212804277197E-05" iyz="2.2809975952499E-14" izz="4.74942168062899E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_lb.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_lb.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <joint name="joint_lb" type="continuous">
+    <origin xyz="-0.115 0.1 -0.02" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_lb" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <gazebo reference="link_lb">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <link name="link_rr">
+    <inertial>
+      <origin xyz="-0.000144515368454431 -0.0122164500164231 -0.0199999999999994" rpy="0 0 0" />
+      <mass value="0.0360000000000001" />
+      <inertia ixx="1.75187601980783E-05" ixy="-1.34621907445705E-07" ixz="1.35433811798209E-21" iyy="6.14023570291863E-06" iyz="1.08855862588802E-19" izz="1.67817095341081E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_rr.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_rr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_rr" type="revolute">
+    <origin xyz="0.095 -0.045 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_rr" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="0" effort="5" velocity="2" />
+  </joint>
+  <gazebo reference="link_rr">
+    <material>Gazebo/LightGrey</material>
+  </gazebo>
+
+  <link name="link_rf">
+    <inertial>
+      <origin xyz="0.000147857623305242 0.0124989832965397 9.2253288341837E-13" rpy="0 0 0" />
+      <mass value="0.107249168322526" />
+      <inertia ixx="4.74994535710132E-05" ixy="4.4268414676023E-07" ixz="-1.23916628670294E-15" iyy="8.49160436629712E-05" iyz="-7.06532376135947E-15" izz="4.74942167895427E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_rf.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_rf.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <joint name="joint_rf" type="continuous">
+    <origin xyz="-0.00065058 -0.054996 -0.02" rpy="0 0 0" />
+    <parent link="link_rr" />
+    <child link="link_rf" />
+    <axis xyz="0.011829 0.99993 0" />
+  </joint>
+  <gazebo reference="link_rf">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <link name="link_rl">
+    <inertial>
+      <origin xyz="5.01128086368985E-05 0.0122172019874497 -0.0199999999999896" rpy="0 0 0" />
+      <mass value="0.0360000000000001" />
+      <inertia ixx="1.75201612239934E-05" ixy="-4.66849804198466E-08" ixz="8.20710226620773E-22" iyy="6.13883467700349E-06" iyz="1.10478713046735E-19" izz="1.67817095341081E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_rl.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_rl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_rl" type="revolute">
+    <origin xyz="0.095 0.045 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_rl" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="0" effort="5" velocity="2" />
+  </joint>
+  <gazebo reference="link_rl">
+    <material>Gazebo/LightGrey</material>
+  </gazebo>
+
+  <link name="link_lf">
+    <inertial>
+      <origin xyz="-5.12717787150285E-05 -0.0124997526586414 6.50890105702295E-12" rpy="0 0 0" />
+      <mass value="0.107249168323006" />
+      <inertia ixx="4.74948464898463E-05" ixy="1.53516643526846E-07" ixz="4.00756715628526E-15" iyy="8.49206507296815E-05" iyz="2.16532696469867E-14" izz="4.7494216806133E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_lf.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_lf.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <joint name="joint_lf" type="continuous">
+    <origin xyz="0.0002256 0.055 -0.02" rpy="0 0 0" />
+    <parent link="link_rl" />
+    <child link="link_lf" />
+    <axis xyz="-0.0041018 1 0" />
+  </joint>
+  <gazebo reference="link_lf">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <link name="link_armone">
+    <inertial>
+      <origin xyz="3.58101996437571E-05 0.000938784468577515 0.0351600995702962" rpy="0 0 0" />
+      <mass value="0.116424727511153" />
+      <inertia ixx="0.000148071630586258" ixy="3.97318867028573E-09" ixz="1.76471438102145E-07" iyy="0.000148135766100354" iyz="-6.20001294847141E-06" izz="3.2555585276306E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_armone.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_armone.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.8</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <joint name="joint_armone" type="revolute">
+    <origin xyz="-0.09 0 0.02" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_armone" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.57" upper="1.57" effort="500" velocity="200" />
+  </joint>
+  <gazebo reference="link_armone">
+    <material>Gazebo/LightGrey</material>
+  </gazebo>
+
+  <link name="link_armtwo">
+    <inertial>
+      <origin xyz="0.0639733280023645 -2.03217138236428E-05 -0.00372706572885938" rpy="0 0 0" />
+      <mass value="0.0954536009132505" />
+      <inertia ixx="1.50365143680641E-05" ixy="1.15034359292028E-06" ixz="9.65674458497313E-06" iyy="0.000154010483966559" iyz="3.01661029684945E-07" izz="0.000152651280277208" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_armtwo.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_armtwo.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>5</mu>
+            <mu2>5</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <joint name="joint_armtwo" type="revolute">
+    <origin xyz="0 0 0.1" rpy="-1.5708 0 0" />
+    <parent link="link_armone" />
+    <child link="link_armtwo" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.57" upper="1.57" effort="500" velocity="200" />
+  </joint>
+  <gazebo reference="link_armtwo">
+    <material>Gazebo/LightGrey</material>
+  </gazebo>
+
+  <link name="link_grip">
+    <inertial>
+      <origin xyz="0.0287347552375006 0.0050933125366685 -0.000887137660088397" rpy="0 0 0" />
+      <mass value="0.0216152724170848" />
+      <inertia ixx="2.16332913809989E-06" ixy="-1.58565128334117E-07" ixz="-5.51009683754574E-07" iyy="6.6272270666211E-06" iyz="-9.08425716184011E-08" izz="5.62451028325091E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_grip.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ten/meshes/link_grip.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>5</mu>
+            <mu2>5</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <joint name="joint_grip" type="revolute">
+    <origin xyz="0.091469 0 0.008" rpy="1.5708 0 0" />
+    <parent link="link_armtwo" />
+    <child link="link_grip" />
+    <axis xyz="0.081822 -0.020685 -0.99643" />
+    <limit lower="-0.2" upper="0.2" effort="500" velocity="2" />
+  </joint>
+  <gazebo reference="link_grip">
+    <material>Gazebo/LightGrey</material>
+  </gazebo>
+
+  <!-- Link cho LIDAR -->
+  <link name="lidar_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.05" length="0.1"/>
+      </geometry>
+      <material>
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.05" length="0.1"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_link"/>
+    <origin xyz="0.14 0 0.01" rpy="0 0 0"/>
+  </joint>
+  <gazebo reference="lidar_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+<gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace>/</robotNamespace>
+    <leftFrontJoint>joint_lf</leftFrontJoint>
+    <rightFrontJoint>joint_rf</rightFrontJoint>
+    <leftRearJoint>joint_lb</leftRearJoint>
+    <rightRearJoint>joint_rb</rightRearJoint>
+    <wheelSeparation>0.4</wheelSeparation>
+    <wheelDiameter>0.215</wheelDiameter>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <torque>20</torque>
+    <topicName>cmd_vel</topicName>
+    <broadcastTF>false</broadcastTF>
+  </plugin>
+</gazebo>
+
+  <!-- Plugin IMU -->
+  <gazebo reference="base_link">
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>20.0</update_rate>
+      <pose>0 0 0 0 -1.5708 0</pose>
+      <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+        <topicName>imu/data</topicName>
+        <frameName>base_link</frameName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Cảm biến LIDAR -->
+  <gazebo reference="lidar_link">
+    <sensor type="ray" name="lidar_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>180</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.57</min_angle>
+            <max_angle>1.57</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_laser" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>lidar_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Plugin Joint State Publisher -->
+  <gazebo>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <robotNamespace>/</robotNamespace>
+      <updateRate>100.0</updateRate>
+      <jointName>joint_rf, joint_lf, joint_rb, joint_lb, joint_armone, joint_armtwo, joint_grip</jointName>
+      <topicName>/joint_states</topicName>
+    </plugin>
+  </gazebo>
+
+  <!-- Plugin Điều khiển tay máy -->
+  <gazebo>
+    <plugin name="arm_controller" filename="libgazebo_ros_joint_pose_trajectory.so">
+      <robotNamespace>/</robotNamespace>
+      <updateRate>100.0</updateRate>
+      <topicName>arm_controller/command</topicName>
+      <jointName>joint_armone, joint_armtwo, joint_grip</jointName>
+    </plugin>
+  </gazebo>
+
+  <!-- Plugin Diff Drive (tuỳ chọn nếu muốn thay thế Skid-Steer) -->
+  <gazebo>
+    <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <leftJoint>joint_lb</leftJoint>
+      <rightJoint>joint_rb</rightJoint>
+      <wheelSeparation>0.4</wheelSeparation>
+      <wheelDiameter>0.215</wheelDiameter>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <odomTopic>/odom</odomTopic>
+      <publishWheelTF>false</publishWheelTF>
+      <publishOdomTF>true</publishOdomTF>
+    </plugin>
+  </gazebo>
+</robot>
