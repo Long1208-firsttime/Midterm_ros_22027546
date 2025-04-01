@@ -133,7 +133,7 @@
     <parent link="base_link" />
     <child link="link_rr" />
     <axis xyz="0 0 -1" />
-    <limit lower="0" upper="0" effort="5" velocity="2" />
+    <limit lower="-0.2" upper="0.2" effort="5" velocity="2" />
   </joint>
   <gazebo reference="link_rr">
     <material>Gazebo/LightGrey</material>
@@ -206,7 +206,7 @@
     <parent link="base_link" />
     <child link="link_rl" />
     <axis xyz="0 0 -1" />
-    <limit lower="0" upper="0" effort="5" velocity="2" />
+    <limit lower="-0.2" upper="0.2" effort="5" velocity="2" />
   </joint>
   <gazebo reference="link_rl">
     <material>Gazebo/LightGrey</material>
@@ -485,7 +485,7 @@
       <robotNamespace>/</robotNamespace>
       <updateRate>100.0</updateRate>
       <topicName>arm_controller/command</topicName>
-      <jointName>joint_armone, joint_armtwo, joint_grip</jointName>
+      <jointName>joint_armone, joint_armtwo, joint_grip,joint_rr, joint_rl</jointName>
     </plugin>
   </gazebo>
 
