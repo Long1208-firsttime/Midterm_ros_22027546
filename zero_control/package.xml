@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>zero_control</name>
+  <version>0.0.0</version>
+  <description>The zero_control package</description>
+  <maintainer email="your_email@example.com">your_name</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>trajectory_msgs</depend>
+
+  <export>
+    <!-- Nếu cần export plugin hoặc tài nguyên -->
+  </export>
+</package>
