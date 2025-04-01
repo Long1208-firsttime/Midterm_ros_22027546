@@ -22,6 +22,9 @@ ROS-based controller for a robotic arm and mobile base in Gazebo.
    - Gazebo: `roslaunch ten gazebo.launch`
    - RViz: `roslaunch ten display.launch`
    - Controller: `rosrun zero_control arm_control.py`
+   - IMU: `rostopic echo /imu/data`
+   - Lidar: `rostopic echo /scan`
+   - Encoder: `rosrun tf tf_echo /odom base_link`
 
 ## Usage
 - Control base (WASD), speed (ER), arm (4,6,8,2,7,9). Exit with Q.
